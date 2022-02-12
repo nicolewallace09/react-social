@@ -1,4 +1,5 @@
 const { ApolloServer } = require('apollo-server');
+// ORM for mongo
 const mongoose = require('mongoose'); 
 
 const typeDefs = require('./schemas/typeDefs'); 
@@ -18,7 +19,7 @@ mongoose
         console.log('MongoDB Connected');
         return server.listen({ port: PORT })
     })
-    .then((res) => {
-        console.log(`Server running on PORT ${res.url}`)
+    .then(() => {
+        console.log(`Server running on PORT ${PORT}`)
     })
 
