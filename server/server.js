@@ -4,11 +4,12 @@ const mongoose = require('mongoose');
 
 const typeDefs = require('./schemas/typeDefs'); 
 const resolvers = require('./schemas/resolvers'); 
-const { MONGODB } = require('./config.js/connection');
+const { MONGODB } = require('./config/connection');
 
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    context: ({req}) => ({req})
 });
 
 const PORT = process.env.PORT || 3001; 
